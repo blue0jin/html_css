@@ -3,49 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>할 일 리스트</title>
-    <link rel="stylesheet" href="todo-styles.css">
+    <title>🍽️ 일주일 식사 메뉴 추천</title>
+    <link rel="stylesheet" href="meal-styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📝 나의 할 일 리스트</h1>
-            <p class="subtitle">오늘 할 일을 관리해보세요!</p>
+            <h1>🍽️ 일주일 식사 메뉴 추천</h1>
+            <p class="subtitle">식자재로 맛있는 메뉴를 찾아보세요!</p>
         </header>
 
-        <div class="input-section">
-            <input type="text" id="todoInput" placeholder="새로운 할 일을 입력하세요..." maxlength="100">
-            <button id="addBtn">추가</button>
+        <div class="search-section">
+            <div class="ingredient-input">
+                <input type="text" id="ingredientInput" placeholder="식자재를 입력하세요 (예: 닭고기, 양파, 감자)">
+                <button id="searchBtn">🔍 메뉴 찾기</button>
+            </div>
+            <div class="ingredient-tags" id="ingredientTags"></div>
+            <div class="action-buttons">
+                <button id="randomBtn" class="action-btn">🎲 랜덤 추천</button>
+                <button id="clearBtn" class="action-btn">🗑️ 초기화</button>
+                <button id="saveBtn" class="action-btn">💾 저장하기</button>
+            </div>
         </div>
 
-        <div class="filter-section">
-            <button class="filter-btn active" data-filter="all">전체</button>
-            <button class="filter-btn" data-filter="active">진행중</button>
-            <button class="filter-btn" data-filter="completed">완료</button>
+        <div class="meal-planner">
+            <div class="days-container">
+                <div class="day-card" data-day="monday">
+                    <h3>월요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-monday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'monday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-monday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'monday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-monday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'monday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="tuesday">
+                    <h3>화요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-tuesday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'tuesday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-tuesday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'tuesday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-tuesday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'tuesday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="wednesday">
+                    <h3>수요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-wednesday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'wednesday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-wednesday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'wednesday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-wednesday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'wednesday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="thursday">
+                    <h3>목요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-thursday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'thursday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-thursday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'thursday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-thursday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'thursday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="friday">
+                    <h3>금요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-friday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'friday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-friday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'friday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-friday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'friday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="saturday">
+                    <h3>토요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-saturday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'saturday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-saturday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'saturday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-saturday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'saturday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-day="sunday">
+                    <h3>일요일</h3>
+                    <div class="meals">
+                        <div class="meal breakfast">
+                            <span class="meal-type">🌅 아침</span>
+                            <div class="meal-content" data-meal="breakfast-sunday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('breakfast', 'sunday')">변경</button>
+                        </div>
+                        <div class="meal lunch">
+                            <span class="meal-type">☀️ 점심</span>
+                            <div class="meal-content" data-meal="lunch-sunday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('lunch', 'sunday')">변경</button>
+                        </div>
+                        <div class="meal dinner">
+                            <span class="meal-type">🌙 저녁</span>
+                            <div class="meal-content" data-meal="dinner-sunday">메뉴를 선택해주세요</div>
+                            <button class="change-btn" onclick="changeMeal('dinner', 'sunday')">변경</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="stats">
-            <span id="totalCount">총 0개</span>
-            <span id="completedCount">완료 0개</span>
-            <span id="activeCount">진행중 0개</span>
-        </div>
-
-        <ul id="todoList" class="todo-list">
-            <!-- 할 일 항목들이 여기에 동적으로 추가됩니다 -->
-        </ul>
-
-        <div class="empty-state" id="emptyState">
-            <div class="empty-icon">📋</div>
-            <p>아직 할 일이 없습니다.</p>
-            <p>위에서 새로운 할 일을 추가해보세요!</p>
-        </div>
-
-        <div class="actions">
-            <button id="clearCompleted" class="clear-btn">완료된 항목 삭제</button>
-            <button id="clearAll" class="clear-btn danger">모두 삭제</button>
+        <div class="suggestions" id="suggestions">
+            <h3>🍳 추천 메뉴</h3>
+            <div class="suggestion-list" id="suggestionList">
+                <p>식자재를 입력하거나 랜덤 추천을 눌러보세요!</p>
+            </div>
         </div>
     </div>
 
-    <script src="todo-script.js"></script>
+    <script src="meal-script.js"></script>
 </body>
 </html>

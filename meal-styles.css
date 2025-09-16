@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.subtitle {
+    opacity: 0.9;
+    font-size: 1.2rem;
+}
+
+.search-section {
+    padding: 30px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.ingredient-input {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#ingredientInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#ingredientInput:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#searchBtn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#searchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.ingredient-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    min-height: 20px;
+}
+
+.ingredient-tag {
+    background: #667eea;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+.ingredient-tag .remove {
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.ingredient-tag .remove:hover {
+    opacity: 1;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    padding: 12px 24px;
+    border: 2px solid #e1e8ed;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    background: #f8f9fa;
+    transform: translateY(-1px);
+}
+
+.meal-planner {
+    padding: 30px;
+}
+
+.days-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.day-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.day-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+}
+
+.day-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #495057;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.meals {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.meal {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.meal:hover {
+    background: #e9ecef;
+}
+
+.meal-type {
+    display: block;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.meal-content {
+    color: #6c757d;
+    margin-bottom: 10px;
+    min-height: 20px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.meal-content.selected {
+    color: #495057;
+    font-weight: 500;
+}
+
+.change-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+}
+
+.meal:hover .change-btn {
+    opacity: 1;
+}
+
+.change-btn:hover {
+    background: #5a6fd8;
+    transform: scale(1.05);
+}
+
+.suggestions {
+    padding: 30px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.suggestions h3 {
+    margin-bottom: 20px;
+    color: #495057;
+    font-size: 1.4rem;
+}
+
+.suggestion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.suggestion-item {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.suggestion-item:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+}
+
+.suggestion-item h4 {
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.suggestion-item p {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.suggestion-item .ingredients {
+    font-size: 12px;
+    color: #868e96;
+    font-style: italic;
+}
+
+.breakfast {
+    border-left: 4px solid #ffd93d;
+}
+
+.lunch {
+    border-left: 4px solid #ff6b6b;
+}
+
+.dinner {
+    border-left: 4px solid #4ecdc4;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        border-radius: 15px;
+    }
+    
+    header {
+        padding: 30px 20px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .search-section,
+    .meal-planner,
+    .suggestions {
+        padding: 20px;
+    }
+    
+    .ingredient-input {
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        justify-content: center;
+    }
+    
+    .days-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .suggestion-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .day-card {
+        padding: 15px;
+    }
+    
+    .meal {
+        padding: 12px;
+    }
+    
+    .change-btn {
+        position: static;
+        opacity: 1;
+        margin-top: 8px;
+        width: 100%;
+    }
+}
