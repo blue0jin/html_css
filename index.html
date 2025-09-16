@@ -1,52 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <title>나의 첫 페이지</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할 일 리스트</title>
+    <link rel="stylesheet" href="todo-styles.css">
 </head>
 <body>
-    <h1 id="abc">내용 부분</h1>
-    <p>상세내용</p>
-    <!--h2>내용 부분</h2--><!--h3>내용 부분</h3--><!--h4>내용 부분</h4--><!--h5>내용 부분</h5--><!--h6>내용 부분</h6-->
-    <div class="atag_list">
-        <a href="https://www.w3schools.com/html/default.asp">w3 schools</a><br>
-        <a href="https://www.naver.com/" target="_blank">naver 새탭에서 열기</a><br>
-        <a href="https://www.google.com/" target="_blank">google 새탭에서 열기</a><br>
-    </div>
-    
-    <div class="img_list">
-        <img src="https://plus.unsplash.com/premium_photo-1757922072048-5968c04e6199?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width=400 height=400>
-        <img src="https://images.unsplash.com/photo-1757609210893-fd6f38231542?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width=400 height=400>
-        <img src="Image_fx.jpg" width="400" height="400">
-    </div>
-    <div class="contents1">
-        <ol>
-            <li>todo 1</li>
-            <li>todo 2</li>
-            <li>todo 3</li>
-        </ol>
-    </div>
-    <div class="contents1">
-        <ul>
-            <li>todo 1</li>
-            <li>todo 2</li>
-            <li>todo 3</li>
-        </ul>
-    </div>
-    <h1>내용부분2</h1>
-    <div class="con1">
-        <ol>
-            <li>con 1</li>
-            <li>con 2</li>
-            <li>con 3</li>
-        </ol>
-    </div>
-    <div class="con1">
-        <ul>
-            <li>con 1</li>
-            <li>con 2</li>
-            <li>con3 3</li>
-        </ul>
-    </div>
-</body>
+    <div class="container">
+        <header>
+            <h1>📝 나의 할 일 리스트</h1>
+            <p class="subtitle">오늘 할 일을 관리해보세요!</p>
+        </header>
 
+        <div class="input-section">
+            <input type="text" id="todoInput" placeholder="새로운 할 일을 입력하세요..." maxlength="100">
+            <button id="addBtn">추가</button>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">전체</button>
+            <button class="filter-btn" data-filter="active">진행중</button>
+            <button class="filter-btn" data-filter="completed">완료</button>
+        </div>
+
+        <div class="stats">
+            <span id="totalCount">총 0개</span>
+            <span id="completedCount">완료 0개</span>
+            <span id="activeCount">진행중 0개</span>
+        </div>
+
+        <ul id="todoList" class="todo-list">
+            <!-- 할 일 항목들이 여기에 동적으로 추가됩니다 -->
+        </ul>
+
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">📋</div>
+            <p>아직 할 일이 없습니다.</p>
+            <p>위에서 새로운 할 일을 추가해보세요!</p>
+        </div>
+
+        <div class="actions">
+            <button id="clearCompleted" class="clear-btn">완료된 항목 삭제</button>
+            <button id="clearAll" class="clear-btn danger">모두 삭제</button>
+        </div>
+    </div>
+
+    <script src="todo-script.js"></script>
+</body>
 </html>
